@@ -1,6 +1,6 @@
 
 /**
- * Send message to content script to update the document title, or close the window if enter is pressed.
+ * Send message to background script to store and update the document title, or close the window if enter is pressed.
  * @param {String} title the new page title
  * @param {int} keyCode the keyCode of the last key press
  * @param {int} tabId the ID of the current tab
@@ -11,7 +11,7 @@ function updateTitle(title, keyCode, tabId) {
   if (keyCode === ENTER_KEY_CODE) {
     close();
   } else {
-    chrome.tabs.sendMessage(tabId, title);
+    chrome.runtime.sendMessage({tabId: tabId, title: title});
   }
 }
 
