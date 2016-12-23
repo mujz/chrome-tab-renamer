@@ -4,12 +4,13 @@
   "name": "Tab Renamer",
   "description": "This extension allows you to change the title of the current tab",
   "version": "1.0",
-  // TODO add omni box, and more and better icons
   "icons": {
-    "16": "16x16.png"
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
   },
 
-  "omnibox": { "keyword" : "rm" },
+  "omnibox": { "keyword" : "rn" },
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {
@@ -19,7 +20,11 @@
     }
   },
   "browser_action": {
-    "default_icon": "popup-icon.png",
+    "default_icon": {
+      "16": "icons/16.png",
+      "24": "icons/24.png",
+      "32": "icons/32.png"
+    },
     "default_popup": "popup.html"
   },
   "background": {
