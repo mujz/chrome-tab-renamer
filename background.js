@@ -1,11 +1,12 @@
 var titles = {};
 
 /**
- * Send message to content script to update the document title.
+ * Save tab title and send message to content script to update the document title.
  * @param {String} title the new page title
  * @param {int} tabId the ID of the current tab
  */
 function updateTitle(title, tabId) {
+  titles[tabId] = title;
   chrome.tabs.sendMessage(tabId, title);
 }
 
@@ -16,8 +17,6 @@ function updateTitle(title, tabId) {
  * @param {string} msg.title the new tab title
  */
 function onMessageListener(msg) {
-  // Save the tab's received title and update it.
-  titles[msg.tabId] = msg.title;
   updateTitle(msg.title, msg.tabId);
 }
 
@@ -33,6 +32,26 @@ function onUpdatedListener(tabId, changeInfo) {
   if (tabId in titles && changeInfo.status === 'complete') updateTitle(titles[tabId], tabId);
 }
 
+/**
+ * onOmniboxInputChanged listener callback.
+ * Fires when a user types in the omnibox after entering the specifies keyword in the manifest and pressing the Tab key.
+ * Note: A second parameter can be passed to give a suggestion callback
+ * @param {String} title the text in the omnibox
+ */
+function onOmniboxInputChanged(title) {
+  // Get current tab object
+  var queryInfo = {
+    active: true,
+    currentWindow: true
+  };
+  chrome.tabs.query(queryInfo, function(tabs) {
+    var tab = tabs[0];
+    // update the title.
+    updateTitle(title, tab.id);
+  });
+}
+
 // Add the listeners
+chrome.omnibox.onInputChanged.addListener(onOmniboxInputChanged);
 chrome.runtime.onMessage.addListener(onMessageListener);
 chrome.tabs.onUpdated.addListener(onUpdatedListener);

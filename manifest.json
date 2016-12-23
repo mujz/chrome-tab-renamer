@@ -9,6 +9,7 @@
     "16": "16x16.png"
   },
 
+  "omnibox": { "keyword" : "rm" },
   "commands": {
     "_execute_browser_action": {
       "suggested_key": {

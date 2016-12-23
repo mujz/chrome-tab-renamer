@@ -19,11 +19,11 @@ document.addEventListener('DOMContentLoaded', function() {
   var form = document.getElementById('title_form');
   var input = form.title;
 
+  // Get current tab object
   var queryInfo = {
     active: true,
     currentWindow: true
   };
-  // Get current tab object
   chrome.tabs.query(queryInfo, function(tabs) {
     var tab = tabs[0];
     input.placeholder = tab.title; // set current tab title as placeholder for the input field
