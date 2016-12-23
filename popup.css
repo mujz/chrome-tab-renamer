@@ -1,0 +1,22 @@
+/*Primary Dark = rgba(0,151,167,1)*/
+/*Primary = rgba(0,186,212,1)*/
+/*accent = rgba(233,30,99,1)*/
+body {
+  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+  font-size: 100%;
+}
+
+input {
+  font-size: 12px;
+  outline: 1px solid rgba(0,151,167,1);
+  color: rgba(233,30,99,1);
+  -webkit-text-fill-color: rgba(0,186,212,1);
+}
+
+input:focus {
+  outline: rgba(0,151,167,1) auto 5px;
+}
+
+::-webkit-input-placeholder {
+  color: rgba(0,186,212,0.7);
+}
