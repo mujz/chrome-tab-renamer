@@ -4,13 +4,26 @@
   "name": "Tab Renamer",
   "description": "This extension allows you to change the title of the current tab",
   "version": "1.0",
+  // TODO add omni box, and more and better icons
+  "icons": {
+    "16": "16x16.png"
+  },
 
+  "commands": {
+    "_execute_browser_action": {
+      "suggested_key": {
+        "default": "Ctrl+B",
+        "mac": "Command+B"
+      }
+    }
+  },
   "browser_action": {
-    "default_icon": "icon.png",
+    "default_icon": "popup-icon.png",
     "default_popup": "popup.html"
   },
   "background": {
-    "scripts": ["background.js"]
+    "scripts": ["background.js"],
+    "persistent": false
   },
   "content_scripts": [
     {
@@ -19,6 +32,8 @@
     }
   ],
   "permissions": [
-    "activeTab"
-  ]
+    "tabs"
+  ],
+
+  "author": "Mujtaba Al-Tameemi"
 }
