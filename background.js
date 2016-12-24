@@ -22,14 +22,13 @@ function onMessageListener(msg) {
 
 /**
  * onUpdated listener callback. Fires when a tab is updated.
+ * Note: a 2nd parameter can be passed to give the change info which may include the status (either "loading" or "complete")
  * Note: a 3rd parameter can be passed to give the updated tab object
  * @param {int} tabId the ID of the updated tab
- * @param {Object} changeInfo contains the status of the updated tab if there is one
- * @param {string} [changeInfo.status either loading or complete]
  */
-function onUpdatedListener(tabId, changeInfo) {
-  // if a tab that we already have a new title for has completed updating, update its title again.
-  if (tabId in titles && changeInfo.status === 'complete') updateTitle(titles[tabId], tabId);
+function onUpdatedListener(tabId) {
+  // if a tab that we already have a new title for has been updated, update its title again.
+  if (tabId in titles) updateTitle(titles[tabId], tabId);
 }
 
 /**
