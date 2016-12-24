@@ -6,15 +6,15 @@ A Chrome extension that allows you to change the title of any tab.
 ##Usage
 There are 3 ways to change the page title:
 
-1. Clicking on the icon in the tab bar
+- Clicking on the icon in the tab bar
 
 ![Click on icon](./screenshots/mouse.png?raw=true)
 
-2. Using the shortcut `ctrl` (or &#8984;) + `B`
+- Using the shortcut `ctrl` (or &#8984;) + `B`
 
 ![Keyboard shortcut](./screenshots/shortcut.png?raw=true)
 
-3. Type `rn` in the address bar, then press the `tab` key.
+- Type `rn` in the address bar, then press the `tab` key.
 
 ![Omnibox](./screenshots/omnibox.png?raw=true)
 
