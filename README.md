@@ -28,7 +28,7 @@ Our `content.js` has a message listener that gets fired when one of the other ex
 
 Currently, we're only sending a message from `background.js` to `content.js` every time the title is updated.
 
-###Background (Event Page)
+###Background
 >A single long-running script to manage some task or state.
 
 This is the most complex part of the extension. It has a global variable that stores the updated titles and 3 listeners that update it. The reason we need to store the updated titles is so that when a page is reloaded or the user follows a link within the page, the user inputted title persists.
