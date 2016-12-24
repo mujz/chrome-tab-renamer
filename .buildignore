@@ -1,0 +1,8 @@
+.buildignore
+.idea
+.gitignore
+screenshots
+README.md
+tab-renamer.zip
+tab_renamer.crx
+build.sh
